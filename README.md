@@ -1,0 +1,3 @@
+- query
+- resource
+- Rest api design pattern
