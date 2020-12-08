@@ -5,8 +5,8 @@ namespace Core\Exceptions;
 use Exception;
 
 /**
- * Class MethodeNotAllowedException
+ * Class RouteNotFoundException
  * @package Core\Exceptions
  */
-class MethodeNotAllowedException extends Exception
+class RouteNotFoundException extends Exception
 {}
