@@ -2,6 +2,7 @@
 
 namespace Mars\Routing;
 
+use Mars\Container\Container;
 use Mars\Routing\Exceptions\RouteNotFoundException;
 
 /**
@@ -12,7 +13,7 @@ class Core {
     /**
      * @var Container
      */
-    protected $container;
+    protected Container $container;
 
     /**
      * Core constructor.

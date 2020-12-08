@@ -2,7 +2,6 @@
   "name": "mars/routing",
   "description": "The Mars Routing package.",
   "license": "MIT",
-  "homepage": "",
   "support": {
     "issues": "https://github.com/marsphp/mars/issues",
     "source": "https://github.com/marsphp/mars"

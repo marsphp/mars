@@ -1,4 +1,7 @@
 <?php
+
+use Mars\Routing\Core;
+
 require 'vendor/autoload.php';
 
 //use Dotenv\Dotenv;
@@ -6,7 +9,7 @@ require 'vendor/autoload.php';
 //$dotenv =Dotenv::createImmutable(__DIR__);
 //$dotenv->load();
 
-$core = new framework\Core;
+$core = new Core;
 $container = $core->getContainer();
 
 $container['config'] = function () {
@@ -19,12 +22,8 @@ $container['errorHandler'] = function () {
     die('404');
 };
 
-$core->get('/', function () {
+$core->map('/', function () {
     echo 'Home';
-});
-
-$core->coreApi('/users', function () {
-    echo 'Users';
-});
+}, ['GET','DELETE']);
 
 $core->run();
