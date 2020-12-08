@@ -1,9 +1,9 @@
 <?php
 
-namespace Core;
+namespace Mars\Routing;
 
-use Core\Exceptions\MethodeNotAllowedException;
-use Core\Exceptions\RouteNotFoundException;
+use Mars\Routing\Exceptions\MethodeNotAllowedException;
+use Mars\Routing\Exceptions\RouteNotFoundException;
 
 /**
  * Class Router

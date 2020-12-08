@@ -1,8 +1,8 @@
 <?php
 
-namespace Core;
+namespace Mars\Routing;
 
-use Core\Exceptions\RouteNotFoundException;
+use Mars\Routing\Exceptions\RouteNotFoundException;
 
 /**
  * Class Core

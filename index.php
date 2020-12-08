@@ -6,7 +6,7 @@ require 'vendor/autoload.php';
 //$dotenv =Dotenv::createImmutable(__DIR__);
 //$dotenv->load();
 
-$core = new Core\Core;
+$core = new framework\Core;
 $container = $core->getContainer();
 
 $container['config'] = function () {

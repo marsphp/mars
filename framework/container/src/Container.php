@@ -1,8 +1,6 @@
 <?php
 
-namespace Core;
-
-use ArrayAccess;
+namespace Mars\Container;
 
 /**
  * Class Container
@@ -10,7 +8,7 @@ use ArrayAccess;
  * @property mixed|void|null errorHandler
  * @package Core
  */
-class Container implements ArrayAccess {
+class Container implements \ArrayAccess {
 
     /**
      * @var array

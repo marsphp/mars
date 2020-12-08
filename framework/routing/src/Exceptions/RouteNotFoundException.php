@@ -1,6 +1,6 @@
 <?php
 
-namespace Core\Exceptions;
+namespace Mars\Routing\Exceptions;
 
 /**
  * Class RouteNotFoundException
