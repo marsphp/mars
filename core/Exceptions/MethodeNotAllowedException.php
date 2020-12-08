@@ -2,11 +2,10 @@
 
 
 namespace Core\Exceptions;
-use Exception;
 
 /**
  * Class MethodeNotAllowedException
  * @package Core\Exceptions
  */
-class MethodeNotAllowedException extends Exception
+class MethodeNotAllowedException extends \Exception
 {}

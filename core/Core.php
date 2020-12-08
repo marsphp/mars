@@ -2,6 +2,8 @@
 
 namespace Core;
 
+use Core\Exceptions\RouteNotFoundException;
+
 /**
  * Class Core
  * @package Core
@@ -52,7 +54,11 @@ class Core {
         $router = $this->container->router;
         $router->setPath($_SERVER['PATH_INFO'] ?? '/');
 
-        $response = $router->getResponse();
+        try {
+            $response = $router->getResponse();
+        } catch (RouteNotFoundException $exception) {
+            die('Route not found');
+        }
 
         return $this->process($response);
     }
