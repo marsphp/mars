@@ -1,5 +1,4 @@
 {
-    "name": "macbookpro/simple-rest",
     "authors": [
         {
             "name": "Hassane Dao",
@@ -10,12 +9,12 @@
             "email": "dao.houssene@gmail.com"
         }
     ],
-    "require": {
-        "vlucas/phpdotenv": "^5.2"
-    },
     "autoload": {
         "psr-4": {
             "Core\\": "core/"
         }
+    },
+    "require": {
+        "vlucas/phpdotenv": "^5.2"
     }
 }
