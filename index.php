@@ -1,15 +1,15 @@
 <?php
 
-use Mars\Routing\Core;
-
 require 'vendor/autoload.php';
+
+use Mars\Routing\RouteCore;
 
 //use Dotenv\Dotenv;
 
 //$dotenv =Dotenv::createImmutable(__DIR__);
 //$dotenv->load();
 
-$core = new Core;
+$core = new RouteCore;
 $container = $core->getContainer();
 
 $container['config'] = function () {

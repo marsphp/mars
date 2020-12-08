@@ -21,14 +21,14 @@ class Router
      *
      * @var array
      */
-    protected array $routes = [];
+    protected $routes = [];
 
     /**
      * Methods.
      *
      * @var array
      */
-    protected array $methods = [];
+    protected $methods = [];
 
     /**
      * @param string $path
@@ -54,12 +54,12 @@ class Router
     /**
      * Get response.
      *
-     * @return array
+     * @return mixed
      *
      * @throws MethodeNotAllowedException
      * @throws RouteNotFoundException
      */
-    public function getResponse(): array
+    public function getResponse()
     {
         if (!isset($this->routes[$this->path])) {
             throw new RouteNotFoundException('No route registered for '. $this->path);

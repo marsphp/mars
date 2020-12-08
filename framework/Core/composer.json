@@ -23,42 +23,49 @@
     }
   },
   "require": {
-    "php": "^7.3|^8.0",
-    "ext-json": "*"
+    "php": "^7.4|^8.0",
+    "ext-json": "*",
+    "mars/collection": "*",
+    "mars/container": "*",
+    "mars/helpers": "*",
+    "mars/logging": "*",
+    "mars/migration": "*",
+    "mars/routing": "*",
+    "mars/session": "*"
   },
-  "config": {
-    "sort-packages": true
-  },
-  "minimum-stability": "dev",
-  "prefer-stable": true,
   "repositories": [
     {
       "type": "path",
-      "url": "../collection"
+      "url": "../Collection"
     },
     {
       "type": "path",
-      "url": "../container"
+      "url": "../Container"
     },
     {
       "type": "path",
-      "url": "../helpers"
+      "url": "../Helpers"
     },
     {
       "type": "path",
-      "url": "../logging"
+      "url": "../Logging"
     },
     {
       "type": "path",
-      "url": "../migration"
+      "url": "../Migration"
     },
     {
       "type": "path",
-      "url": "../routing"
+      "url": "../Routing"
     },
     {
       "type": "path",
       "url": "./session"
     }
-  ]
+  ],
+  "config": {
+    "sort-packages": true
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
 }

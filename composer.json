@@ -9,6 +9,12 @@
             "email": "dao.houssene@gmail.com"
         }
     ],
+    "require": {
+        "php": "^7.4|^8.0",
+        "ext-json": "*",
+        "vlucas/phpdotenv": "^5.2",
+        "mars/core": "*"
+    },
     "autoload": {
         "psr-4": {
             "App\\": "app/"
@@ -19,15 +25,10 @@
             "Tests\\": "tests/"
         }
     },
-    "require": {
-        "php": "^7.4|^8.0",
-        "ext-json": "*",
-        "vlucas/phpdotenv": "^5.2"
-    },
     "repositories": [
         {
             "type": "path",
-            "url": "./framework/core"
+            "url": "./framework/Core"
         }
     ]
 }

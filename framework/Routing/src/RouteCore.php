@@ -9,7 +9,7 @@ use Mars\Routing\Exceptions\RouteNotFoundException;
  * Class Core
  * @package Core
  */
-class Core {
+class RouteCore {
     /**
      * @var Container
      */
