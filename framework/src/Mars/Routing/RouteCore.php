@@ -6,8 +6,8 @@ use Mars\Container\Container;
 use Mars\Routing\Exceptions\RouteNotFoundException;
 
 /**
- * Class Core
- * @package Core
+ * Class Mars
+ * @package Mars
  */
 class RouteCore {
     /**
@@ -16,7 +16,7 @@ class RouteCore {
     protected Container $container;
 
     /**
-     * Core constructor.
+     * Mars constructor.
      */
     public function __construct()
     {

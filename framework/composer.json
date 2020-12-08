@@ -1,0 +1,46 @@
+{
+  "name": "mars/framework",
+  "description": "The Mars Core package.",
+  "license": "MIT",
+  "support": {
+    "issues": "https://github.com/marsphp/mars/issues",
+    "source": "https://github.com/marsphp/mars"
+  },
+  "keywords": ["framework", "mars"],
+  "authors": [
+    {
+      "name": "Hassane Dao",
+      "email": "dao.hassane@gmail.com"
+    },
+    {
+      "name": "Houssene Dao",
+      "email": "dao.houssene@gmail.com"
+    }
+  ],
+  "provide": {
+    "psr/container-implementation": "1.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Mars\\": "src/Mars"
+    }
+  },
+  "require": {
+    "php": "^7.4|^8.0",
+    "ext-json": "*"
+  },
+  "replace": {
+    "mars/core": "self.version",
+    "mars/collection": "self.version",
+    "mars/container": "self.version",
+    "mars/helpers": "self.version",
+    "mars/logging": "self.version",
+    "mars/migration": "self.version",
+    "mars/routing": "self.version"
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}

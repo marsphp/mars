@@ -2,23 +2,25 @@
 
 namespace Mars\Container;
 
+use ArrayAccess;
+
 /**
  * Class Container
  * @property mixed|void|null router
  * @property mixed|void|null errorHandler
- * @package Core
+ * @package Mars
  */
-class Container implements \ArrayAccess {
+class Container implements ArrayAccess {
 
     /**
      * @var array
      */
-    protected $items = [];
+    protected array $items = [];
 
     /**
      * @var array
      */
-    protected $cache = [];
+    protected array $cache = [];
 
 
     public function __construct(array $items = [])

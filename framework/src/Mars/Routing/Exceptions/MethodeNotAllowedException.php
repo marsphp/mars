@@ -5,6 +5,6 @@ namespace Mars\Routing\Exceptions;
 /**
  * Class MethodeNotAllowedException
  *
- * @package Core\Exceptions
+ * @package Mars\Exceptions
  */
 class MethodeNotAllowedException extends \Exception {}

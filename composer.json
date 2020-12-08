@@ -12,8 +12,7 @@
     "require": {
         "php": "^7.4|^8.0",
         "ext-json": "*",
-        "vlucas/phpdotenv": "^5.2",
-        "mars/core": "*"
+        "mars/framework": "1.x-dev"
     },
     "autoload": {
         "psr-4": {
@@ -28,7 +27,7 @@
     "repositories": [
         {
             "type": "path",
-            "url": "./framework/Core"
+            "url": "framework"
         }
     ]
 }

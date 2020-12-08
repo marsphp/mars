@@ -5,6 +5,6 @@ namespace Mars\Routing\Exceptions;
 /**
  * Class RouteNotFoundException
  *
- * @package Core\Exceptions
+ * @package Mars\Exceptions
  */
 class RouteNotFoundException extends \Exception {}

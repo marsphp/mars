@@ -7,7 +7,7 @@ use Mars\Routing\Exceptions\RouteNotFoundException;
 
 /**
  * Class Router
- * @package Core
+ * @package Mars
  */
 class Router
 {
@@ -21,14 +21,14 @@ class Router
      *
      * @var array
      */
-    protected $routes = [];
+    protected array $routes = [];
 
     /**
      * Methods.
      *
      * @var array
      */
-    protected $methods = [];
+    protected array $methods = [];
 
     /**
      * @param string $path

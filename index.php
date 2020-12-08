@@ -9,8 +9,8 @@ use Mars\Routing\RouteCore;
 //$dotenv =Dotenv::createImmutable(__DIR__);
 //$dotenv->load();
 
-$core = new RouteCore;
-$container = $core->getContainer();
+$app = new RouteCore;
+$container = $app->getContainer();
 
 $container['config'] = function () {
     return [
@@ -22,8 +22,8 @@ $container['errorHandler'] = function () {
     die('404');
 };
 
-$core->map('/', function () {
+$app->map('/', function () {
     echo 'Home';
 }, ['GET','DELETE']);
 
-$core->run();
+$app->run();
