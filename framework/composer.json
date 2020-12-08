@@ -36,7 +36,9 @@
     "mars/helpers": "self.version",
     "mars/logging": "self.version",
     "mars/migration": "self.version",
-    "mars/routing": "self.version"
+    "mars/routing": "self.version",
+    "mars/controller": "self.version",
+    "mars/response": "self.version"
   },
   "config": {
     "sort-packages": true

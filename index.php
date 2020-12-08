@@ -2,14 +2,15 @@
 
 require 'vendor/autoload.php';
 
-use Mars\Routing\RouteCore;
+use App\Controllers\HomeController;
+use Mars\Core\Core;
 
 //use Dotenv\Dotenv;
 
 //$dotenv =Dotenv::createImmutable(__DIR__);
 //$dotenv->load();
 
-$app = new RouteCore;
+$app = new Core;
 $container = $app->getContainer();
 
 $container['config'] = function () {
@@ -19,11 +20,12 @@ $container['config'] = function () {
 };
 
 $container['errorHandler'] = function () {
-    die('404');
+    return function ($response) {
+        return $response->setBody('Page not found')->withStatus(404);
+    };
 };
 
-$app->map('/', function () {
-    echo 'Home';
-}, ['GET','DELETE']);
+
+$app->get('/', [HomeController::class, 'index']);
 
 $app->run();
