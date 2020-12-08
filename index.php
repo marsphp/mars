@@ -15,6 +15,10 @@ $container['config'] = function () {
     ];
 };
 
+$container['errorHandler'] = function () {
+    die('404');
+};
+
 $core->get('/', function () {
     echo 'Home';
 });

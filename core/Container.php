@@ -7,6 +7,7 @@ use ArrayAccess;
 /**
  * Class Container
  * @property mixed|void|null router
+ * @property mixed|void|null errorHandler
  * @package Core
  */
 class Container implements ArrayAccess {

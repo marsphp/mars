@@ -49,15 +49,13 @@ class Router
      */
     public function getResponse()
     {
-        if (isset($this->routes[$this->path])) {
+        if (!isset($this->routes[$this->path])) {
             throw new RouteNotFoundException('No route registered for '. $this->path);
         }
-
 
         if (!in_array($_SERVER['REQUEST_METHOD'], $this->methods[$this->path])) {
             throw new MethodeNotAllowedException;
         }
-
 
         return $this->routes[$this->path];
     }

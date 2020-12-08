@@ -57,7 +57,11 @@ class Core {
         try {
             $response = $router->getResponse();
         } catch (RouteNotFoundException $exception) {
-            die('Route not found');
+            if ($this->container->has('errorHandler')) {
+                $response = $this->container->errorHandler;
+            } else {
+                return;
+            }
         }
 
         return $this->process($response);
