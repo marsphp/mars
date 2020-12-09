@@ -1,6 +1,6 @@
 {
   "name": "mars/routing",
-  "description": "The Mars Container package.",
+  "description": "The Mars Routing package.",
   "license": "MIT",
   "support": {
     "issues": "https://github.com/marsphp/mars/issues",

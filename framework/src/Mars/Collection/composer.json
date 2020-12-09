@@ -1,6 +1,6 @@
 {
   "name": "mars/collection",
-  "description": "The Mars Container package.",
+  "description": "The Mars Collection package.",
   "license": "MIT",
   "support": {
     "issues": "https://github.com/marsphp/mars/issues",

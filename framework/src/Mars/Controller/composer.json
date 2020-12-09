@@ -1,6 +1,6 @@
 {
   "name": "mars/controller",
-  "description": "The Mars Container package.",
+  "description": "The Mars Controller package.",
   "license": "MIT",
   "support": {
     "issues": "https://github.com/marsphp/mars/issues",

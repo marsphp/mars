@@ -1,6 +1,6 @@
 {
   "name": "mars/logging",
-  "description": "The Mars Container package.",
+  "description": "The Mars Logging package.",
   "license": "MIT",
   "support": {
     "issues": "https://github.com/marsphp/mars/issues",

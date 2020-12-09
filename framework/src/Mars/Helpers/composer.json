@@ -1,6 +1,6 @@
 {
   "name": "mars/helpers",
-  "description": "The Mars Container package.",
+  "description": "The Mars Helper package.",
   "license": "MIT",
   "support": {
     "issues": "https://github.com/marsphp/mars/issues",

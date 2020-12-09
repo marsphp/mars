@@ -1,6 +1,6 @@
 {
   "name": "mars/framework",
-  "description": "The Mars Core package.",
+  "description": "The Mars framework.",
   "license": "MIT",
   "support": {
     "issues": "https://github.com/marsphp/mars/issues",

@@ -1,6 +1,6 @@
 {
   "name": "mars/core",
-  "description": "The Mars Container package.",
+  "description": "The Mars core package.",
   "license": "MIT",
   "support": {
     "issues": "https://github.com/marsphp/mars/issues",
@@ -18,7 +18,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "Core\\Core\\": ""
+      "Mars\\Core\\": ""
     }
   },
   "require": {
