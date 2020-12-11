@@ -19,13 +19,13 @@
     }
   ],
   "require": {
-    "php": "^8.0",
+    "php": "^7.4|^8.0",
     "ext-json": "*",
     "ext-mbstring": "*",
     "ext-openssl": "*",
-    "psr/container": "^1.0",
-    "psr/route": "^4.5",
-    "psr/event": "^3.0",
+    "league/container": "^3.3",
+    "league/route": "^4.5",
+    "league/event": "^3.0",
     "vlucas/phpdotenv": "^5.2",
     "voku/portable-ascii": "^1.4.8"
   },
