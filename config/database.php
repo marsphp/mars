@@ -1,8 +1,5 @@
 <?php
 
-/**
- * Database configuration.
- */
 return [
 
 ];
