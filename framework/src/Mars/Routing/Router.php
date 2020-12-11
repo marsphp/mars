@@ -1,74 +1,136 @@
 <?php
 
+
 namespace Mars\Routing;
 
-use Mars\Routing\Exceptions\MethodeNotAllowedException;
-use Mars\Routing\Exceptions\RouteNotFoundException;
+use Mars\Core\Core;
 
 /**
  * Class Router
- * @package Mars
+ *
+ * @package Mars\Core
  */
 class Router
 {
     /**
-     * @var mixed|string
-     */
-    protected $path;
-
-    /**
-     * Routes.
+     *
      *
      * @var array
      */
     protected array $routes = [];
 
     /**
-     * Methods.
      *
-     * @var array
+     *
+     * @var Request
      */
-    protected array $methods = [];
+    public Request $request;
+
+
+    public Response $response;
 
     /**
+     * Router constructor.
+     *
+     * @param Request $request
+     * @param Response $response
+     */
+    public function __construct(Request $request, Response $response)
+    {
+        $this->request = $request;
+        $this->response = $response;
+    }
+
+    /**
+     *
+     *
      * @param string $path
+     * @param $callback
      */
-    public function setPath($path = '/')
+    public function get(string $path, $callback)
     {
-        $this->path = $path;
+        $this->routes['get'][$path] = $callback;
+    }
+
+    public function post(string $path, $callback)
+    {
+        $this->routes['post'][$path] = $callback;
     }
 
     /**
-     * Add route.
      *
-     * @param $uri
-     * @param $handler
-     * @param array $methods
+     *
+     * @return false|mixed|string
      */
-    public function addRoute($uri, $handler, array $methods = ['GET'])
+    public function resolve()
     {
-        $this->routes[$uri] = $handler;
-        $this->methods[$uri] = $methods;
+        $path = $this->request->getPath();
+        $method = $this->request->method();
+
+        $callback = $this->routes[$method][$path] ?? false;
+
+        if ($callback === false) {
+            $this->response->setStatusCode(404);
+            return 'Not found';
+        }
+        
+        if (is_string($callback)) {
+            return $this->renderView($callback);
+        }
+
+        if (is_array($callback)) {
+            $callback[0] = new $callback[0]();
+        }
+
+        return call_user_func($callback, $this->request);
     }
 
     /**
-     * Get response.
-     *
-     * @return mixed
-     *
-     * @throws MethodeNotAllowedException
-     * @throws RouteNotFoundException
+     * @param string $view
+     * @return false|string|string[]
      */
-    public function getResponse()
+    public function renderView(string $view, $params = [])
     {
-        if (!isset($this->routes[$this->path])) {
-            throw new RouteNotFoundException('No route registered for '. $this->path);
+        $layoutContent = $this->layoutContent();
+        $viewContent = $this->renderOnlyView($view, $params);
+
+        return str_replace('{{content}}', $viewContent, $layoutContent);
+    }
+
+    /**
+     * @param string $viewContent
+     * @return false|string|string[]
+     */
+    public function renderContent(string $viewContent)
+    {
+        $layoutContent = $this->layoutContent();
+
+        return str_replace('{{content}}', $viewContent, $layoutContent);
+    }
+
+    /**
+     * @return false|string
+     */
+    protected function layoutContent()
+    {
+        ob_start();
+        include_once Core::$ROOT_DIR. "/resources/views/layouts/main.php";
+        return ob_get_clean();
+    }
+
+    /**
+     * @param $view
+     * @param $params
+     * @return false|string
+     */
+    protected function renderOnlyView($view, $params)
+    {
+        foreach ($params as $key => $value) {
+            $$key = $value;
         }
 
-        if (!in_array($_SERVER['REQUEST_METHOD'], $this->methods[$this->path])) {
-            throw new MethodeNotAllowedException;
-        }
-
-        return $this->routes[$this->path];
+        ob_start();
+        include_once Core::$ROOT_DIR. "/resources/views/$view.php";
+        return ob_get_clean();
     }
 }

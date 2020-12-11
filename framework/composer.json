@@ -1,12 +1,13 @@
 {
   "name": "mars/framework",
-  "description": "The Mars framework.",
-  "license": "MIT",
-  "support": {
-    "issues": "https://github.com/marsphp/mars/issues",
-    "source": "https://github.com/marsphp/mars"
-  },
+  "description": "Mars framework",
   "keywords": ["framework", "mars"],
+  "license": "MIT",
+  "homepage": "https://mars.dev",
+  "support": {
+    "issues": "https://github.com/marsphp/framework/issues",
+    "source": "https://github.com/marsphp/framework"
+  },
   "authors": [
     {
       "name": "Hassane Dao",
@@ -17,29 +18,60 @@
       "email": "dao.houssene@gmail.com"
     }
   ],
+  "require": {
+    "php": "^7.4|^8.0",
+    "ext-json": "*",
+    "ext-mbstring": "*",
+    "ext-openssl": "*",
+    "doctrine/inflector": "^1.4|^2.0",
+    "dragonmantank/cron-expression": "^3.0.2",
+    "monolog/monolog": "^2.0",
+    "nesbot/carbon": "^2.31",
+    "psr/container": "^1.0",
+    "psr/simple-cache": "^1.0",
+    "symfony/console": "^5.1.4",
+    "symfony/error-handler": "^5.1.4",
+    "symfony/finder": "^5.1.4",
+    "symfony/http-foundation": "^5.1.4",
+    "symfony/http-kernel": "^5.1.4",
+    "symfony/mime": "^5.1.4",
+    "symfony/process": "^5.1.4",
+    "symfony/routing": "^5.1.4",
+    "symfony/var-dumper": "^5.1.4",
+    "vlucas/phpdotenv": "^5.2",
+    "voku/portable-ascii": "^1.4.8"
+  },
+  "require-dev": {
+    "filp/whoops": "^2.8",
+    "guzzlehttp/guzzle": "^6.5.5|^7.0.1",
+    "phpunit/phpunit": "^8.5.8|^9.3.3",
+    "symfony/cache": "^5.1.4"
+  },
   "provide": {
     "psr/container-implementation": "1.0"
   },
+  "conflict": {
+    "tightenco/collect": "<5.5.33"
+  },
   "autoload": {
+    "files": [
+      "src/Mars/Support/helpers.php"
+    ],
     "psr-4": {
-      "Mars\\": "src/Mars"
+      "Mars\\": "src/Mars/"
     }
   },
-  "require": {
-    "php": "^7.4|^8.0",
-    "ext-json": "*"
+  "autoload-dev": {
+    "psr-4": {
+      "Mars\\Tests\\": "tests/"
+    }
   },
-  "replace": {
-    "mars/core": "self.version",
-    "mars/collection": "self.version",
-    "mars/container": "self.version",
-    "mars/helpers": "self.version",
-    "mars/logging": "self.version",
-    "mars/migration": "self.version",
-    "mars/routing": "self.version",
-    "mars/controller": "self.version",
-    "mars/response": "self.version"
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.x-dev"
+    }
   },
+  "suggest": {},
   "config": {
     "sort-packages": true
   },

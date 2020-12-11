@@ -1,172 +1,58 @@
 <?php
 
 namespace Mars\Core;
-
-use Mars\Container\Container;
-use Mars\Response\Response;
-use Mars\Routing\Exceptions\RouteNotFoundException;
+use Mars\Routing\Request;
+use Mars\Routing\Response;
 use Mars\Routing\Router;
 
 /**
- * Class Mars
- * @package Mars
+ * Class Core
+ *
+ * @author Hassane Dao <dao.hassane@gmail.com>
+ * @author Houssene Dao <dao.houssene@gmail.com>
+ *
+ * @package Mars\Core
  */
 class Core
 {
-    /**
-     * @var Container
-     */
-    protected Container $container;
+    public static string $ROOT_DIR;
 
     /**
-     * Mars constructor.
+     * @var Router
      */
-    public function __construct()
-    {
-        $this->container = new Container([
-            'router' => function () {
-                return new Router;
-            },
-            'response' => function () {
-                return new Response;
-            }
-        ]);
-    }
+    public Router $router;
 
     /**
-     * @return Container
+     * @var Request
      */
-    public function getContainer()
-    {
-        return $this->container;
-    }
+    public Request $request;
 
     /**
-     * GET method route.
+     * @var Response
+     */
+    public Response $response;
+
+    /**
+     * @var Core
+     */
+    public static Core $core;
+
+    /**
+     * Core constructor.
      *
-     * @param $uri
-     * @param $handler
+     * @param $rootPath
      */
-    public function get($uri, $handler)
+    public function __construct($rootPath)
     {
-        $this->container->router->addRoute($uri, $handler, ['GET']);
+        self::$ROOT_DIR = $rootPath;
+        self::$core = $this;
+        $this->request = new Request();
+        $this->response = new Response();
+        $this->router = new Router($this->request, $this->response);
     }
 
-    /**
-     * POST method route.
-     *
-     * @param $uri
-     * @param $handler
-     */
-    public function post($uri, $handler)
-    {
-        $this->container->router->addRoute($uri, $handler, ['POST']);
-    }
-
-    /**
-     * PUT method route.
-     *
-     * @param $uri
-     * @param $handler
-     */
-    public function put($uri, $handler)
-    {
-        $this->container->router->addRoute($uri, $handler, ['PUT']);
-    }
-
-    /**
-     * PATCH method route.
-     *
-     * @param $uri
-     * @param $handler
-     */
-    public function patch($uri, $handler)
-    {
-        $this->container->router->addRoute($uri, $handler, ['PATCH']);
-    }
-
-    /**
-     * DELETE method route.
-     *
-     * @param $uri
-     * @param $handler
-     */
-    public function delete($uri, $handler)
-    {
-        $this->container->router->addRoute($uri, $handler, ['DELETE']);
-    }
-
-    /**
-     * array[] methods route.
-     * default GET methode is set
-     *
-     * @param $uri
-     * @param $handler
-     * @param array|string[] $methods
-     */
-    public function map($uri, $handler, array $methods = ['GET'])
-    {
-        $this->container->router->addRoute($uri, $handler, $methods);
-    }
-
-    /**
-     * @return mixed|void
-     */
     public function run()
     {
-        $router = $this->container->router;
-        $router->setPath($_SERVER['PATH_INFO'] ?? '/');
-
-        try {
-            $response = $router->getResponse();
-        } catch (RouteNotFoundException $exception) {
-            if ($this->container->has('errorHandler')) {
-                $response = $this->container->errorHandler;
-            } else {
-                return;
-            }
-        }
-
-        return $this->respond($this->process($response));
-    }
-
-    /**
-     * @param $callable
-     * @return mixed
-     */
-    protected function process($callable)
-    {
-        $response = $this->container->response;
-
-        if (is_array($callable)) {
-            if (!is_object($callable[0])) {
-                $callable[0] = new $callable[0];
-            }
-
-            return call_user_func($callable, $response);
-        }
-
-        return $callable($response);
-    }
-
-    protected function respond($response)
-    {
-        if (!$response instanceof Response) {
-            echo $response;
-            return;
-        }
-
-        header(sprintf(
-            'HTTP/%s %s %s',
-            '1.1',
-            $response->getStatusCode(),
-            ''
-        ));
-
-        foreach ($response->getHeaders() as $header) {
-            header($header[0] . ': ' . $header[1]);
-        }
-
-        echo $response->getBody();
+        echo $this->router->resolve();
     }
 }

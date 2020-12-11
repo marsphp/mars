@@ -1,4 +1,12 @@
 .idea
-composer.lock
-vendor
 .env
+
+/node_modules
+/public/hot
+/bin/storage
+/storage/*.key
+/vendor
+.env.backup
+.phpunit.result.cache
+docker-compose.override.yml
+composer.lock
