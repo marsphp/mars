@@ -15,8 +15,7 @@
   ],
   "require": {
     "php": "^7.4|^8.0",
-    "mars/framework": "1.x-dev",
-    "vlucas/phpdotenv": "^5.2"
+    "mars/framework": "1.x-dev"
   },
   "config": {
     "optimize-autoloader": true,
