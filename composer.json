@@ -1,0 +1,26 @@
+{
+    "name": "mars/mars",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Hassane DAO",
+            "email": "dao.hassane@gmail.com"
+        },
+        {
+            "name": "Houssene DAO",
+            "email": "dao.houssene@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
