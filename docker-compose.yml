@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  pgsql:
+    image: 'postgres:14'
+    ports:
+      - '${FORWARD_DB_PORT:-5432}:5432'
+    environment:
+      PGPASSWORD: '${DB_PASSWORD:-secret}'
+      POSTGRES_DB: '${DB_DATABASE}'
+      POSTGRES_USER: '${DB_USERNAME}'
+      POSTGRES_PASSWORD: '${DB_PASSWORD:-secret}'
+    volumes:
+      - 'mars-pgsql:/var/lib/postgresql/data'
+    networks:
+      - mars
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-q", "-d", "${DB_DATABASE}", "-U", "${DB_USERNAME}" ]
+      retries: 3
+      timeout: 5s
+
+networks:
+  mars:
+    driver: bridge
+volumes:
+  mars-pgsql:
+    driver: local

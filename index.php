@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__. '/vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 
 $app = new App\App;
 
@@ -8,16 +8,20 @@ $container = $app->getContainer();
 
 $container['config'] = function () {
     return [
-        'db_driver' => 'mysql',
+        'db_driver' => 'pgsql',
         'db_host' => 'localhost',
-        'db_name' => 'mars',
-        'db_user' => 'root',
-        'db_password' => 'root',
+        'db_name' => 'mars_db',
+        'db_user' => 'mars_user',
+        'db_password' => 'password',
     ];
 };
 
-$container['db'] = function () {
-    return new \PDO('');
+$container['db'] = function ($c) {
+    return new \PDO(
+        $c->config['db_driver'] . ':host=' . $c->config['db_host'] . ';dbname=' . $c->config['db_name'],
+        $c->config['db_user'],
+        $c->config['db_password']
+    );
 };
 
-var_dump($container->config);
+var_dump($container->db);
