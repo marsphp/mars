@@ -12,7 +12,7 @@ class App
     {
         $this->container = new Container([
             'router' => function () {
-                return new Router();
+                return new Router;
             }
         ]);
     }

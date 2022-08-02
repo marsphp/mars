@@ -11,7 +11,9 @@ class Container implements \ArrayAccess
 
     public function __construct(array $items = [])
     {
-        foreach ($items as  $item) {}
+        foreach ($items as $key => $item) {
+            $this->offsetSet($key, $item);
+        }
     }
 
     #[ReturnTypeWillChange] public function offsetSet(mixed $offset, mixed $value)
