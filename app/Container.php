@@ -9,6 +9,11 @@ class Container implements \ArrayAccess
     protected array $items = [];
     protected array $cache = [];
 
+    public function __construct(array $items = [])
+    {
+        foreach ($items as  $item) {}
+    }
+
     #[ReturnTypeWillChange] public function offsetSet(mixed $offset, mixed $value)
     {
         $this->items[$offset] = $value;
