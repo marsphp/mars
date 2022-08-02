@@ -6,6 +6,7 @@ $app = new App\App;
 
 $container = $app->getContainer();
 
+
 $container['errorHandler'] = function () {
     //
 };
@@ -31,3 +32,5 @@ $container['db'] = function ($c) {
 $app->get('/home', function () {
     echo 'Home';
 });
+
+$app->run();
