@@ -4,7 +4,7 @@ namespace App;
 
 class App
 {
-    protected $container;
+    protected Container $container;
 
     public function __construct()
     {
@@ -12,12 +12,10 @@ class App
     }
 
     /**
-     * @return mixed
+     * @return Container
      */
-    public function getContainer(): mixed
+    public function getContainer(): Container
     {
         return $this->container;
     }
-
-
 }

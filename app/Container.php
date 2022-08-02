@@ -2,32 +2,43 @@
 
 namespace App;
 
+use ReturnTypeWillChange;
+
 class Container implements \ArrayAccess
 {
     protected array $items = [];
+    protected array $cache = [];
 
-    public function offsetSet(mixed $offset, mixed $value)
+    #[ReturnTypeWillChange] public function offsetSet(mixed $offset, mixed $value)
     {
         $this->items[$offset] = $value;
     }
 
-    public function offsetGet(mixed $offset)
+    #[ReturnTypeWillChange] public function offsetGet(mixed $offset)
     {
         if (!$this->has($offset)) {
             return null;
         }
 
-        return $this->items[$offset]();
+        if (isset($this->cache[$offset])) {
+            return $this->cache[$offset];
+        }
+
+        $item = $this->items[$offset]();
+
+        $this->cache[$offset] = $item;
+
+        return $item;
     }
 
-    public function offsetUnset(mixed $offset)
+    #[ReturnTypeWillChange] public function offsetUnset(mixed $offset)
     {
-        if($this->has($offset)) {
+        if ($this->has($offset)) {
             unset($this->items[$offset]);
         }
     }
 
-    public function offsetExists(mixed $offset): bool
+    #[ReturnTypeWillChange] public function offsetExists(mixed $offset): bool
     {
         return isset($this->items[$offset]);
     }
