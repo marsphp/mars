@@ -16,5 +16,8 @@ $container['config'] = function () {
     ];
 };
 
+$container['db'] = function () {
+    return new \PDO('');
+};
+
 var_dump($container->config);
-var_dump($container);
