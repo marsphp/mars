@@ -2,7 +2,7 @@
 
 namespace App\Exceptions;
 
-class RouteNotFoundException extends \Exception
+class RouteNotFoundException extends \JsonException
 {
 
 }
