@@ -19,5 +19,12 @@
     }
   },
   "require": {
-  }
+    "marsphp/framework": "@dev"
+  },
+  "repositories": [
+    {
+      "type": "path",
+      "url": "./framework/"
+    }
+  ]
 }
