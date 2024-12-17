@@ -1,0 +1,23 @@
+{
+  "name": "mars/framework",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Hassane Dao",
+      "email": "email@example.com"
+    },
+    {
+      "name": "Houssene Dao",
+      "email": "email@example.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/"
+    }
+  },
+  "require": {
+  }
+}
