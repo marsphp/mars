@@ -1,6 +1,6 @@
 <?php
 
-use Mars\Framework\App;
+use Mars\App;
 
 require '../vendor/autoload.php';
 
