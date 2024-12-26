@@ -1,10 +1,10 @@
 <?php
 
-namespace Mars\Framework\Providers;
+namespace Mars\Providers;
 
 use League\Container\ServiceProvider\AbstractServiceProvider;
 use League\Container\ServiceProvider\BootableServiceProviderInterface;
-use Mars\Framework\Config\Config;
+use Mars\Config\Config;
 use Spatie\Ignition\Ignition;
 
 class AppServiceProvider extends AbstractServiceProvider implements BootableServiceProviderInterface

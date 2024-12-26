@@ -1,6 +1,6 @@
 <?php
 
-namespace Mars\Framework\Providers;
+namespace Mars\Providers;
 
 use Laminas\Diactoros\Request;
 use Laminas\Diactoros\ServerRequestFactory;

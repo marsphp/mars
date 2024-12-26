@@ -4,10 +4,10 @@ use Dotenv\Dotenv;
 use Laminas\Diactoros\Response;
 use Laminas\HttpHandlerRunner\Emitter\SapiEmitter;
 use League\Container\ReflectionContainer;
-use Mars\Framework\App;
-use Mars\Framework\Config\Config;
-use Mars\Framework\Container;
-use Mars\Framework\Providers\ConfigServiceProvider;
+use Mars\Mars\App;
+use Mars\Mars\Config\Config;
+use Mars\Mars\Container;
+use Mars\Mars\Providers\ConfigServiceProvider;
 
 error_reporting(0);
 

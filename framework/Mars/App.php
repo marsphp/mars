@@ -1,6 +1,6 @@
 <?php
 
-namespace Mars\Framework;
+namespace Mars;
 
 use Laminas\Diactoros\Request;
 use Laminas\Diactoros\Response;

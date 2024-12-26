@@ -6,8 +6,8 @@ return [
     'debug' => env('APP_DEBUG', false),
 
     'providers' => [
-        \Mars\Framework\Providers\AppServiceProvider::class,
-        \Mars\Framework\Providers\RequestServiceProvider::class,
-        \Mars\Framework\Providers\RouteServiceProvider::class,
+        \Mars\Mars\Providers\AppServiceProvider::class,
+        \Mars\Mars\Providers\RequestServiceProvider::class,
+        \Mars\Mars\Providers\RouteServiceProvider::class,
     ]
 ];

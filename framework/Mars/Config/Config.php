@@ -1,6 +1,6 @@
 <?php
 
-namespace Mars\Framework\Config;
+namespace Mars\Config;
 
 class Config
 {

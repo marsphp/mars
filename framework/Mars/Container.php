@@ -1,6 +1,6 @@
 <?php
 
-namespace Mars\Framework;
+namespace Mars;
 
 class Container
 {
