@@ -53,3 +53,20 @@ if (!function_exists('route')) {
         return app(Router::class)->getNamedRoute($name)->getPath($arguments);
     }
 }
+
+if (!function_exists('base_path')) {
+    /**
+     * @param string|null $path
+     * @return string
+     */
+    function base_path(?string $path = ''): string {
+        return __DIR__ . '/..//' . ($path ? DIRECTORY_SEPARATOR . $path : $path);
+    }
+}
+
+if (!function_exists('public_path')) {
+    function public_path(?string $path = ''): string
+    {
+        return base_path('public') . ($path ? DIRECTORY_SEPARATOR . $path : $path);
+    }
+}
