@@ -6,7 +6,8 @@
   "license": "MIT",
   "require": {
     "php": "^8.2",
-    "mars/framework": "@dev"
+    "mars/facades": "@dev",
+    "mars/framework": "dev-main"
   },
   "autoload": {
     "psr-4": {
@@ -15,8 +16,12 @@
   },
   "repositories": [
     {
-      "type": "path",
-      "url": "./framework/"
+      "type": "vcs",
+      "url": "https://github.com/marsphp/framework.git"
+    },
+    {
+      "type": "vcs",
+      "url": "https://github.com/marsphp/facades.git"
     }
   ],
   "config": {
