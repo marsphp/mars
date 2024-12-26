@@ -30,14 +30,6 @@ foreach ($config->get('app.providers') as $provider) {
 
 $app = new App($container);
 
-$router = $container->get(\League\Route\Router::class);
-
-$app->getRouter()->get('/', function () {
-    $res = new Response();
-
-    $res->getBody()->write('Hello World!');
-
-    return $res;
-});
+(require('../src/Interface/Routes/api.php'))($app->getRouter(), $container);
 
 $app->run();
