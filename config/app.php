@@ -1,13 +1,17 @@
 <?php
 
+use Mars\Providers\AppServiceProvider;
+use Mars\Providers\RequestServiceProvider;
+use Mars\Providers\RouteServiceProvider;
+
 return [
     'name' => env('APP_NAME', 'Mars Framework'),
 
     'debug' => env('APP_DEBUG', false),
 
     'providers' => [
-        \Mars\Mars\Providers\AppServiceProvider::class,
-        \Mars\Mars\Providers\RequestServiceProvider::class,
-        \Mars\Mars\Providers\RouteServiceProvider::class,
+        AppServiceProvider::class,
+        RequestServiceProvider::class,
+        RouteServiceProvider::class,
     ]
 ];

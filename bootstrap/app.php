@@ -1,13 +1,11 @@
 <?php
 
 use Dotenv\Dotenv;
-use Laminas\Diactoros\Response;
-use Laminas\HttpHandlerRunner\Emitter\SapiEmitter;
 use League\Container\ReflectionContainer;
-use Mars\Mars\App;
-use Mars\Mars\Config\Config;
-use Mars\Mars\Container;
-use Mars\Mars\Providers\ConfigServiceProvider;
+use Mars\App;
+use Mars\Config\Config;
+use Mars\Container;
+use Mars\Providers\ConfigServiceProvider;
 
 error_reporting(0);
 
