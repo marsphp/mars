@@ -1,5 +1,6 @@
-.idea/
+*.DS_Store
+.idea
+.vscode
 
 /vendor/
 /composer.lock
-/framework/
