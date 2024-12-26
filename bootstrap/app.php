@@ -1,17 +1,17 @@
 <?php
 
 use Dotenv\Dotenv;
-use League\Container\ReflectionContainer;
 use Mars\App;
+use League\Container\ReflectionContainer;
 use Mars\Config\Config;
 use Mars\Container;
 use Mars\Providers\ConfigServiceProvider;
 
-error_reporting(0);
+//error_reporting(0);
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-$dotenv = Dotenv::createImmutable(__DIR__ . '/../');
+$dotenv = Dotenv::createImmutable(base_path());
 $dotenv->load();
 
 $container =  Container::getInstance();
