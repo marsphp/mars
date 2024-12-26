@@ -1,6 +1,10 @@
 <?php
 
-if (! function_exists('class_basename')) {
+use League\Route\Router;
+use Mars\Config\Config;
+use Mars\Container;
+
+if (!function_exists('class_basename')) {
     /**
      * Get the class "basename" of the given object / class.
      *
@@ -12,5 +16,40 @@ if (! function_exists('class_basename')) {
         $class = is_object($class) ? get_class($class) : $class;
 
         return basename(str_replace('\\', '/', $class));
+    }
+}
+
+if (!function_exists('app')) {
+    /**
+     * @param string $abstract
+     * @return mixed
+     */
+    function app(string $abstract): mixed
+    {
+        return Container::getInstance()->get($abstract);
+    }
+}
+
+if (!function_exists('config')) {
+    /**
+     * @param string $key
+     * @param $default
+     * @return mixed
+     */
+    function config(string $key, $default = null): mixed
+    {
+        return app(Config::class)->get($key, $default);
+    }
+}
+
+if (!function_exists('route')) {
+    /**
+     * @param string $name
+     * @param array $arguments
+     * @return mixed
+     */
+    function route(string $name, array $arguments = []): mixed
+    {
+        return app(Router::class)->getNamedRoute($name)->getPath($arguments);
     }
 }
