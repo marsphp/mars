@@ -1,15 +1,16 @@
 {
+  "$schema": "https://getcomposer.org/schema.json",
   "name": "mars/mars",
   "description": "The skeleton application for the Mars framework.",
   "keywords": ["mars", "framework", "marsphp"],
   "license": "MIT",
-  "$schema": "https://getcomposer.org/schema.json",
   "require": {
     "php": "^8.2",
     "adbario/php-dot-notation": "^3.3",
     "laminas/laminas-diactoros": "^3.5",
     "laminas/laminas-httphandlerrunner": "^2.11",
     "league/container": "^4.2",
+    "league/event": "^3.0",
     "league/route": "^6.2",
     "spatie/ignition": "^1.15",
     "vlucas/phpdotenv": "^5.6"
