@@ -8,8 +8,6 @@ use Psr\Http\Message\ServerRequestInterface;
 
 class HomeController
 {
-    public function __construct() {}
-
     public function __invoke(ServerRequestInterface $request)
     {
         $response = new Response();
