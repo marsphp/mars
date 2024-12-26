@@ -1,6 +1,6 @@
 <?php
 
-namespace Mars\Facades\Abstracts;
+namespace Mars\Support\Facades;
 
 abstract class Facade
 {

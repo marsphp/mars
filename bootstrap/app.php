@@ -1,10 +1,10 @@
 <?php
 
 use Dotenv\Dotenv;
-use Mars\App;
 use League\Container\ReflectionContainer;
+use Mars\App;
 use Mars\Config\Config;
-use Mars\Container;
+use Mars\Container\Container;
 use Mars\Providers\ConfigServiceProvider;
 
 //error_reporting(0);

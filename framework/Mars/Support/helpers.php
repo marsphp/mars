@@ -2,7 +2,7 @@
 
 use League\Route\Router;
 use Mars\Config\Config;
-use Mars\Container;
+use Mars\Container\Container;
 
 if (!function_exists('class_basename')) {
     /**
