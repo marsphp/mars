@@ -2,11 +2,20 @@
 
 namespace App\Interface\Http\Controllers;
 
+use Laminas\Diactoros\Request;
+use Laminas\Diactoros\Response;
+use Psr\Http\Message\ServerRequestInterface;
+
 class HomeController
 {
-    public function __invoke()
+    public function __construct() {}
+
+    public function __invoke(ServerRequestInterface $request)
     {
-        var_dump('HomeController');
-        die();
+        $response = new Response();
+
+        $response->getBody()->write($request->getQueryParams()['name']);
+
+        return $response;
     }
 }
