@@ -34,7 +34,7 @@ class ConfigServiceProvider extends AbstractServiceProvider implements BootableS
 
     protected function mergeConfigFromFiles(Config $config): Config
     {
-        $path = __DIR__ . '/../../../../config';
+        $path = base_path('/config');
 
        foreach (array_diff(scandir($path), ['.', '..']) as $file) {
            $config->merge([
