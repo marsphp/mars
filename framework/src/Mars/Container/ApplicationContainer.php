@@ -109,11 +109,11 @@ class ApplicationContainer extends Container
     /**
      * Join the given paths together.
      *
-     * @param  string  $basePath
-     * @param  string  $path
+     * @param string $basePath
+     * @param string $path
      * @return string
      */
-    public function joinPaths($basePath, $path = ''): string
+    public function joinPaths(string $basePath, string $path = ''): string
     {
         return join_paths($basePath, $path);
     }
