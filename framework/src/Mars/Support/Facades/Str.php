@@ -2,10 +2,10 @@
 
 namespace Mars\Support\Facades;
 
-class Route extends Facade
+class Str extends Facade
 {
     public static function getFacadeAccessor(): string
     {
-        return 'route';
+        return 'str';
     }
 }
