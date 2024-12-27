@@ -4,20 +4,19 @@ use Dotenv\Dotenv;
 use League\Container\ReflectionContainer;
 use Mars\App;
 use Mars\Config\Config;
-use Mars\Container\Container;
+use Mars\Container\ApplicationContainer;
 use Mars\Providers\ConfigServiceProvider;
 
-//error_reporting(0);
+error_reporting(0);
 
 require_once __DIR__ . '/../vendor/autoload.php';
+
+$container =  ApplicationContainer::configure(basePath: dirname(__DIR__));
 
 $dotenv = Dotenv::createImmutable(base_path());
 $dotenv->load();
 
-$container =  Container::getInstance();
-
 $container->delegate(new ReflectionContainer());
-
 $container->addServiceProvider(new ConfigServiceProvider());
 
 $config = $container->get(Config::class);
