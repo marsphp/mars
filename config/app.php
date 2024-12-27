@@ -13,5 +13,6 @@ return [
         AppServiceProvider::class,
         RequestServiceProvider::class,
         RouteServiceProvider::class,
+        \Mars\Providers\FacadeServiceProvider::class,
     ]
 ];
